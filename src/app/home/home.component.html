@@ -1,0 +1,23 @@
+<section class="text-center">
+
+    <h5>This is the home component -> obviously</h5>
+    <h5>But there is a small detail about it.</h5>
+    <h5>It lazy loades components with DEFER</h5>
+    <h5>It has a a large-component and an initial content as a placeholder</h5>
+
+    @defer() {
+    <app-large></app-large>
+    }@placeholder(minimum 4s) {
+    <app-initial-content></app-initial-content>
+    }
+
+    <div #ifYouSeeMe class="card">
+        <div class="card-body">
+            <h4>If you click me... a very-large-component will load</h4>
+        </div>
+    </div>
+
+    @defer (on interaction(ifYouSeeMe)) {
+    <app-very-large-component></app-very-large-component>
+    }
+</section>

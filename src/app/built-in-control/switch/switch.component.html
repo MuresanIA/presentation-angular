@@ -1,0 +1,52 @@
+@switch (item) { @case ("ItemOne") {
+<div class="card w-50 m-auto">
+    <div class="card-body text-center">
+        <h4 class="card-title">Switch items</h4>
+        <p class="card-text">{{ item }}</p>
+        <p class="card-text">{{ descItemOne }}</p>
+    </div>
+</div>
+} @case ("ItemTwo") {
+<div class="card w-50 m-auto">
+    <div class="card-body text-center">
+        <h4 class="card-title">Switch items</h4>
+        <p class="card-text">{{ item }}</p>
+        <p class="card-text">{{ descItemTwo }}</p>
+    </div>
+</div>
+} @case ("ItemThree") {
+<div class="card w-50 m-auto">
+    <div class="card-body text-center">
+        <h4 class="card-title">Switch items</h4>
+        <p class="card-text">{{ item }}</p>
+        <p class="card-text">{{ descItemThree }}</p>
+    </div>
+</div>
+} @default {
+<div class="card w-50 m-auto">
+    <div class="card-body text-center">
+        <h4 class="card-title">Switch items</h4>
+        <p class="card-text">Hello there! I am the DEFAULT!</p>
+        <p class="card-text">
+            If there is no match for any of the 3 cases, I come into play.
+        </p>
+    </div>
+</div>
+}}
+
+<div class="d-flex justify-content-center">
+    <div class="btn-group" role="group" aria-label="Country selection">
+        <button type="button" class="btn btn-primary m-2" (click)="setItems('ItemOne')">
+            ItemOne
+        </button>
+        <button type="button" class="btn btn-secondary m-2" (click)="setItems('ItemTwo')">
+            ItemTwo
+        </button>
+        <button type="button" class="btn btn-success m-2" (click)="setItems('ItemThree')">
+            ItemThree
+        </button>
+        <button type="button" class="btn btn-info m-2" (click)="setItems('Default')">
+            Trigger The Default
+        </button>
+    </div>
+</div>

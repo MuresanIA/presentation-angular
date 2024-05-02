@@ -1,0 +1,32 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    @defer () {
+                    <app-all-users></app-all-users>
+                    } @loading (minimum 2s) {
+                    <app-loading-spinner></app-loading-spinner>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 mx-auto">
+            <div class="card">
+                <div class="card-body">
+                    <h4 #message>Hover over me!</h4>
+                    @defer (on hover(message)) {
+                    <app-large></app-large>
+                    }@placeholder (minimum 2s) {
+                    <app-initial-content></app-initial-content>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
