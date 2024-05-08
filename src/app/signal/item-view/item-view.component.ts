@@ -26,9 +26,9 @@ export class ItemViewComponent implements OnInit {
   updatedPrice = 10;
 
   ngOnInit(): void {
-    setInterval(() => {
-      this.updatePrice();
-    }, 1000);
+    // setInterval(() => {
+    //   this.updatePrice();
+    // }, 1000);
   }
 
   updatePrice() {

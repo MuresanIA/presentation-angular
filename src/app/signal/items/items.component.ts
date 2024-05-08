@@ -1,14 +1,11 @@
 import {
-  ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
   computed,
   DestroyRef,
   effect,
-  EventEmitter,
   inject,
   OnInit,
-  Output,
   signal,
 } from '@angular/core';
 

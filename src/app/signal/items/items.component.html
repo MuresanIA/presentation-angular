@@ -1,8 +1,8 @@
 <section class="container">
-    <div *ngIf="itemObservable$ | async" class="row justify-content-center">
+    <div *ngIf="items$ | async" class="row justify-content-center">
         <div class="col-md-6">
             <div class="list-group">
-                <a *ngFor="let item of itemObservable$ | async" class="list-group-item list-group-item-action"
+                <a *ngFor="let item of items$ | async" class="list-group-item list-group-item-action"
                     (click)="selectItem(item)">
                     <h5 class="mb-1">{{item.name}}</h5>
                     <p class="mb-1">{{item.description}}</p>
@@ -14,7 +14,6 @@
 
     <select [ngModel]="quantity()" (change)="onQuantitySelected($any($event.target).value)"
         class="form-select form-select-lg mb-3" aria-label="Large select example">
-        <option default selected>Signal</option>
         <option *ngFor="let qty of qtyAvailable()">{{qty}}</option>
     </select>
 
