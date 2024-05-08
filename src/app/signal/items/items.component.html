@@ -16,4 +16,15 @@
         <option default selected>Signal</option>
         <option *ngFor="let qty of qtyAvailable()">{{qty}}</option>
     </select>
+
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="list-group">
+                <a>
+                    <h5 class="mb-1">Item's name: {{selectedItem().name}}</h5>
+                    <p class="mb-1">item's price: {{computedPrice() | number: '1.2-2'}}</p>
+                </a>
+            </div>
+        </div>
+    </div>
 </section>
