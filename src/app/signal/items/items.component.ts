@@ -26,23 +26,27 @@ export default class ItemsComponent implements OnInit {
   private itemService = inject(ItemsService);
   destroyRef = inject(DestroyRef);
   
+ 
+  
   constructor() {
-    console.log('from constructor', this.quantity());
-    this.quantity.update((qty) => qty * 2);
+    console.log('signal value from constructor', this.quantity());
+    // this.quantity.update((qty) => qty * 2);
   }
 
   quantity = signal(1);
   qtyAvailable = signal([1, 2, 3, 4, 5]);
 
-  qtyEffect = effect(() => console.log('Latest quantity:', this.quantity()));
+  qtyEffect = effect(() => console.log('signal value from effect:', this.quantity()));
 
-  selectedItem = signal<Item>({
-    id: 14,
-    name: 'Signal Item',
-    description: 'some description',
-    price: 22,
-  });
-  computedPrice = computed(() => this.selectedItem().price * this.quantity());
+
+
+//   selectedItem = signal<Item>({
+//     id: 14,
+//     name: 'Signal Item',
+//     description: 'some description',
+//     price: 22,
+//   });
+//  computedPrice = computed(() => this.selectedItem().price * this.quantity());
 
 
   protected itemsArray: Item[] = [];
@@ -61,6 +65,8 @@ export default class ItemsComponent implements OnInit {
    */
 
   ngOnInit(): void {
+    console.log('signal value from OnInit', this.quantity());
+
     // this.data$.pipe(takeUntilDestroyed(this.destroyRef)).subscribe((data) => {
     //   console.log('data', data);
     // });
@@ -68,7 +74,7 @@ export default class ItemsComponent implements OnInit {
 
   onQuantitySelected(qty: number) {
     this.quantity.set(qty);
-    // this.quantity.set(1);
+    // this.quantity.set(42);
     // this.quantity.set(2);
     // this.quantity.set(33);
     // this.quantity.set(44);
