@@ -1,0 +1,9 @@
+<section *ngIf="item()">
+    <div>
+        <h4>Selected item</h4>
+        <div>{{item().name}}</div>
+        <div>{{item().description}}</div>
+        <div>Price: {{item().price}}</div>
+        <div style="color: red;">Updated price: {{updatedPrice}}</div>
+    </div>
+</section>

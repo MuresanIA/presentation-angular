@@ -1,8 +1,9 @@
 <section class="container">
-    <div *ngIf="items$ | async" class="row justify-content-center">
+    <div *ngIf="itemObservable$ | async" class="row justify-content-center">
         <div class="col-md-6">
             <div class="list-group">
-                <a *ngFor="let item of items$ | async" href="#" class="list-group-item list-group-item-action">
+                <a *ngFor="let item of itemObservable$ | async" class="list-group-item list-group-item-action"
+                    (click)="selectItem(item)">
                     <h5 class="mb-1">{{item.name}}</h5>
                     <p class="mb-1">{{item.description}}</p>
                 </a>
@@ -27,4 +28,6 @@
             </div>
         </div>
     </div> -->
+
+    <div><app-item-view [item]="selectedItemViewSignal()" /></div>
 </section>

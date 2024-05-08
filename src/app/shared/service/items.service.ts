@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
-import { toSignal } from '@angular/core/rxjs-interop';
+import { toObservable, toSignal } from '@angular/core/rxjs-interop';
 import { catchError, EMPTY, Observable, tap } from 'rxjs';
 import { Item } from '../models/item';
 
@@ -28,4 +28,5 @@ export class ItemsService {
   itemsSignal = toSignal<Item[], Item[]>(this.items$, {
     initialValue: [],
   });
+
 }
