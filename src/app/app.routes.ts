@@ -1,4 +1,6 @@
 import { Routes } from '@angular/router';
+import { newAuthGuard } from './route-guard/new/new.authguard';
+import { newResolver } from './resolvers/new/new.resolver';
 
 export const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'home' },
@@ -8,8 +10,15 @@ export const routes: Routes = [
     loadComponent: () => import('./home/home.component'),
   },
   {
+    title: 'Items',
+    path: 'items',
+    loadComponent: () => import('./signal/items/items.component'),
+    resolve: [newResolver],
+  },
+  {
     title: 'Built-in Control Flow - For',
     path: 'for',
+    // canActivate: [newAuthGuard],
     loadComponent: () => import('./built-in-control/for/for.component'),
   },
   {
