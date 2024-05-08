@@ -5,6 +5,7 @@ import {
   Component,
   inject,
   input,
+  NgZone,
   OnInit,
   signal,
 } from '@angular/core';
@@ -23,19 +24,23 @@ export class ItemViewComponent implements OnInit {
   public changeDetectionRef = inject(ChangeDetectorRef);
   // updatedPrice = signal<number>(10);
   updatedPrice = 10;
+
   ngOnInit(): void {
     setInterval(() => {
       this.updatePrice();
-      // this.changeDetectionRef.markForCheck();
     }, 1000);
   }
 
   updatePrice() {
-    // this.updatedPrice.update(() =>
-    //   Math.floor(Math.random() * this.item()?.price)
-    // );
-    this.updatedPrice = Math.floor(Math.random() * this.item()?.price);
-    console.log(this.updatedPrice);
-    // this.changeDetectionRef.markForCheck();
+    if (this.item()) {
+      // this.updatedPrice.update(() =>
+      //   Math.floor(Math.random() * this.item()?.price)
+      // );
+      // console.log(this.updatedPrice());
+
+      this.updatedPrice = Math.floor(Math.random() * this.item()?.price);
+      console.log('updated price', this.updatedPrice);
+      this.changeDetectionRef.markForCheck();
+    }
   }
 }
