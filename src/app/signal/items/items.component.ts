@@ -44,13 +44,13 @@ export default class ItemsComponent implements OnInit {
   selectedItemView!: Item;
   selectedItemViewSignal = signal<Item>(this.selectedItemView);
 
-  // selectedItem = signal<Item>({
-  //   id: 14,
-  //   name: 'Signal Item',
-  //   description: 'some description',
-  //   price: 22,
-  // });
-  //  computedPrice = computed(() => this.selectedItem().price * this.quantity());
+  selectedItem = signal<Item>({
+    id: 14,
+    name: 'Signal Item',
+    description: 'some description',
+    price: 22,
+  });
+   computedPrice = computed(() => this.selectedItem().price * this.quantity());
 
   protected itemsArray: Item[] = [];
   // using signal from async
@@ -62,13 +62,6 @@ export default class ItemsComponent implements OnInit {
   data$ = interval(1000);
   items$ = this.itemService.items$;
 
-  /**
-   * Todo
-   *
-   * Signals effect
-   * Signals changeDetection example
-   * takeUntilDestroyed
-   */
 
   ngOnInit(): void {
     console.log('signal value from OnInit', this.quantity());

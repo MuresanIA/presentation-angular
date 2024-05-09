@@ -7,17 +7,17 @@
 
     <!-- @defer() {
     <app-large></app-large>
-    }@placeholder() {
+    }@placeholder(minimum 5000) {
     <app-initial-content></app-initial-content>
     } -->
 
-    <div #ifYouSeeMe class="card">
+    <div #clickMe class="card">
         <div class="card-body">
             <h4>If you click me... a very-large-component will load</h4>
         </div>
     </div>
 
-    @defer (on interaction(ifYouSeeMe)) {
+    @defer (on interaction(clickMe)) {
     <app-very-large-component></app-very-large-component>
     }
 </section>

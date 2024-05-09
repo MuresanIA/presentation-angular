@@ -40,7 +40,7 @@ export class ItemViewComponent implements OnInit {
 
       this.updatedPrice = Math.floor(Math.random() * this.item()?.price);
       console.log('updated price', this.updatedPrice);
-      this.changeDetectionRef.markForCheck();
+      // this.changeDetectionRef.markForCheck();
     }
   }
 }
